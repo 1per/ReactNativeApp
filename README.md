@@ -6,7 +6,7 @@
 
 2. react-native run-android
 
-3. ?? error ?? ? ?? ?? ??
+3. 만일 error 발생 시
 
 ```
 > npm install react@16.0.0-alpha.6 --save-dev
@@ -17,7 +17,7 @@
 
 ```
 
-??? error ??? ?? ????
+위 설정 후 에도 error 발생 시 추가 작업
 
 ```
 npm install jest@23.4.2 --save-dev
