@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Modal, TouchableHighlight } from 'react-native';
 
 export default class VoteStart extends Component<Props> {
-    // state = {
-    //     modalVisible: false,
-    //     selectState: false,
-    // };
 
     constructor(props) {
         super(props);

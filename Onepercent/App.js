@@ -18,63 +18,65 @@ export default class TabViewExample extends React.Component {
         ],
     };
 
+
+
     _renderTabBar = props => {
         const inputRange = props.navigationState.routes.map((x, i) => i);
 
         return (
             <View style={styles.tabBar}>
-        {props.navigationState.routes.map((route, i) => {
-            const backgroundColor = props.position.interpolate({
-                inputRange,
-                outputRange: inputRange.map(
-                    inputIndex => (inputIndex === i ? '#55a0d6' : '#535860')
-                ),
-            });
-            var icon;
-            if( route.title == 'home')
-                icon = require('./img/icon_home_off_btn.png');
-            else if(route.title == 'vote')
-                icon = require('./img/icon_vote_off_btn.png');
-            else if(route.title == 'prize')
-                icon = require('./img/icon_prize_off_btn.png');
-            else
-                icon = require('./img/icon_more_off_btn.png');
-            return (
-                <TouchableHighlight
-            key= {i}
-            underlayColor="rgba(255,255,255,0.5)"
-            style={styles.tabItem}
-            onPress={() => this.setState({ index: i })}>
-        <Animated.Text style={{ backgroundColor }}>
-        <Image source={icon} />
-            </Animated.Text>
-            </TouchableHighlight>
+                {props.navigationState.routes.map((route, i) => {
+                    const backgroundColor = props.position.interpolate({
+                        inputRange,
+                        outputRange: inputRange.map(
+                            inputIndex => (inputIndex === i ? '#55a0d6' : '#535860')
+                        ),
+                    });
+                    var icon;
+                    if( route.title == 'home')
+                        icon = require('./img/icon_home_off_btn.png');
+                    else if(route.title == 'vote')
+                        icon = require('./img/icon_vote_off_btn.png');
+                    else if(route.title == 'prize')
+                        icon = require('./img/icon_prize_off_btn.png');
+                    else
+                        icon = require('./img/icon_more_off_btn.png');
+                    return (
+                        <TouchableHighlight
+                            key= {i}
+                            underlayColor="rgba(255,255,255,0.5)"
+                            style={styles.tabItem}
+                            onPress={() => this.setState({ index: i })}>
+                            <Animated.Text style={{ backgroundColor }}>
+                                <Image source={icon} />
+                            </Animated.Text>
+                        </TouchableHighlight>
+                    );
+                })}
+            </View>
         );
-        })}
-    </View>
-    );
     };
 
     render() {
         return (
             <View style={styles.container}>
-    <Text style={styles.header}>1Percent</Text>
-        <TabView
-        navigationState={this.state}
-        renderScene={SceneMap({
-                                  home: Home,
-                                  vote: Vote,
-                                  prize: Prize,
-                                  more: More
-                              })}
-        onIndexChange={index => this.setState({ index })}
-        renderTabBar={this._renderTabBar}
-        // initialLayout={{ width: Dimensions.get('window').width }}
-        style={styles.tabview}
-    >
-    </TabView>
-        </View>
-    );
+                <Text style={styles.header}>1Percent</Text>
+                <TabView
+                    navigationState={this.state}
+                    renderScene={SceneMap({
+                        home: Home,
+                        vote: Vote,
+                        prize: Prize,
+                        more: More
+                    })}
+                    onIndexChange={index => this.setState({ index })}
+                    renderTabBar={this._renderTabBar}
+                    // initialLayout={{ width: Dimensions.get('window').width }}
+                    style={styles.tabview}
+                >
+                </TabView>
+            </View>
+        );
     }
 }
 
