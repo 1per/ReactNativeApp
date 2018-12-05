@@ -1,0 +1,12 @@
+{
+	"vote" : {
+		"question": "지금 우리 동네 날씨는 몇도?",
+	  "votestate": false,
+	  "answer": [
+	    { "id": "answer1", "value": "35", "selected": false, "percent": 30 },
+	    { "id": "answer2", "value": "36", "selected": false, "percent": 40 },
+	    { "id": "answer3", "value": "37", "selected": false, "percent": 10 },
+	    { "id": "answer4", "value": "38", "selected": false, "percent": 20 }
+	  ]
+	}
+}
